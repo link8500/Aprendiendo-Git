@@ -1,0 +1,40 @@
+<div class="text-end mt-5">
+    <button type="button" class="btn btn-primary" routerLink="/">
+        Regresar
+    </button>
+</div>
+<p class="h2 mb-5">
+    @if (contact) {
+        Editar
+    }@else {
+    Nuevo 
+    }
+    Empleado</p>
+
+<div class="row row-cols-2 justify-content-center">
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3">
+            <label class="mb-2">Nombre</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre" formControlName="nombre">
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Apellido</label>
+            <input type="text" id="apellido" class="form-control" placeholder="Apellido" formControlName="apellido">
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Email</label>
+            <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-dark mx-5">
+                @if (contact) {
+                    Actualizar
+                }@else {
+                Crear
+                }Crear
+            </button>
+        </div>
+    </form>
+    }
+</div>

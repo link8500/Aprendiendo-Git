@@ -1,0 +1,39 @@
+<p class="h1 my-5">Listado De Empleados</p>
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="/New">
+        Nuevo Empleado
+    </button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (contact of contacts; track contact.id)
+        {
+        <tr>
+            <th>{{contact.id}}</th>
+            <td>{{contact.nombre}}</td>
+            <td>{{contact.apellido}}</td>
+            <td>{{contact.email}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-light" [routerLink]="['/New',contact.id]">
+                        Actualizar
+                    </button>
+                    <button class="btn btn-light" (click)="delete(contact)">
+                        Eliminar
+                    </button>
+                </div>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
